@@ -1,0 +1,140 @@
+* {
+    text-decoration: none;
+}
+
+body {
+    /* background: #666; */
+    font-size: 1.2rem;
+    /* color: hsla(0,0%,0%,0.8); */
+    font-family: 'Helvetica Neue','Segoe UI','Helvetica','Arial',sans-serif;
+    font-weight: normal;
+    word-wrap: break-word;
+    font-kerning: normal;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav .nav-container {
+    max-width: 1000px;
+    margin: auto;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 0 2rem;
+}
+
+.nav .brand span{
+    color: #333;
+    font-weight: 600;
+}
+
+.nav .link span{
+    color: #444;
+    font-weight: 400;
+    font-size: medium;
+}
+
+footer {
+    /* position: fixed; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(202, 198, 198);
+    /* display: flex; */
+    align-items: center;
+}
+
+.footer .footer-container {
+    max-width: 1000px;
+    margin: auto;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 2rem;
+}
+
+.footer .footer-container span {
+    color: #444;
+    font-weight: 400;
+    font-size: medium;
+}
+
+.main {
+    /* background: red; */
+    margin: auto;
+    margin-top: 100px;
+}
+
+.main .container {
+    /* background: red; */
+    left: 0;
+    max-width: 1000px;
+    margin: auto;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.item {
+    padding-bottom: 50px;
+    margin: auto;
+}
+
+img {
+    width: auto;
+    height: 500px;
+}
+
+.left-side {
+    padding-right: 50px;
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+.right-side {
+    text-align: justify;
+    width: auto;
+    height: 530px;
+    /* float: left; */
+    padding: 0px 10px;
+    margin: auto;
+}
+
+.btn {
+    text-align: center;
+}
+
+.btnBuy {
+    padding: 14px 100px;
+    font-weight: bold;
+    background-color: #f3f3f3;
+}
+
+.btnBuy:hover {
+    background-color: #333;
+    color: #f3f3f3;
+}
+
+.desc {
+    font-size: medium;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+

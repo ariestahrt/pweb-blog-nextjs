@@ -1,0 +1,27 @@
+<?php
+
+include("config.php");
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $nama = str_replace("'", "\'", $_POST['nama']);
+    $kelamin = str_replace("'", "\'", $_POST['kelamin']);
+    $agama = str_replace("'", "\'", $_POST['agama']);
+    $sekolah = str_replace("'", "\'", $_POST['sekolah']);
+    $alamat = str_replace("'", "\'", $_POST['alamat']);
+
+    $sql = "INSERT INTO calon_siswa (nama, jenis_kelamin, agama, sekolah_asal, alamat) VALUE ('$nama', '$kelamin', '$agama', '$sekolah', '$alamat')";
+    $query = mysqli_query($db, $sql);
+    if ($query) {
+        die(json_encode([
+            "error" => 0,
+            "status" => "OK"
+        ]));
+    } else {
+        die(json_encode([
+            "error" => 500,
+            "status" => "Internal Server Error"
+        ]));
+    }
+}else{
+    die("Method not allowed");
+}

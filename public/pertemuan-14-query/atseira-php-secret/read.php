@@ -1,0 +1,31 @@
+<?php
+
+include("config.php");
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
+
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    $id = str_replace("'", "\'", $_GET['id']);
+    $sql = "SELECT * FROM calon_siswa WHERE id=$id";
+    $query = mysqli_query($db, $sql);
+
+    while ($siswa = mysqli_fetch_array($query)) {
+        echo json_encode([
+            "id" => $siswa["id"],
+            "url_foto" => $siswa["url_foto"],
+            "nama" => $siswa["nama"],
+            "kelamin" => $siswa["jenis_kelamin"],
+            "agama" => $siswa["agama"],
+            "sekolah" => $siswa["sekolah_asal"],
+            "alamat" => $siswa["alamat"],
+            "nama" => $siswa["nama"],
+            
+        ]);
+        echo "\n";
+        break;
+    }
+}else{
+    die("Method not allowed");
+}

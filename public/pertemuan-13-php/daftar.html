@@ -1,0 +1,156 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar SMK Ngodong</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://codeseven.github.io/toastr/build/toastr.min.css"/>
+<link rel="text/javascript" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+<style>
+    body {
+        font-family: 'Lato', sans-serif
+    }
+
+    h1 {
+        margin-bottom: 40px
+    }
+
+    label {
+        color: #333
+    }
+
+    .btn-send {
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        width: 80%;
+        margin-left: 3px
+    }
+
+    .help-block.with-errors {
+        color: #ff5050;
+        margin-top: 5px
+    }
+
+    .card {
+        margin-left: 10px;
+        margin-right: 10px
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class=" text-center mt-5 ">
+            <h1>Formulir Daftar SMK Coding</h1>
+        </div>
+        <div class="row ">
+            <div class="col-lg-7 mx-auto">
+                <div class="card mt-2 mx-auto p-4 bg-light">
+                    <div class="card-body bg-light">
+                        <div class="container">
+                            <form id="form-daftar" role="form" method="POST" action="daftar.php">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group"> <label for="form_nama">Nama Lengkap *</label>
+                                                <input id="form_nama" type="text" name="nama" class="form-control" placeholder="Nama lengkap anda *" required="required" data-error="Nama diperlukan." />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_kelamin">Pilih jenis kelamin *</label>
+                                                <select id="form_kelamin" name="kelamin" class="form-control" required="required" data-error="Tolong pilih jenis kelamin.">
+                                                    <option value="" selected disabled>Jenis Kelamin</option>
+                                                    <option value="L">Laki-laki</option>
+                                                    <option value="P">Perempuan</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_agama">Pilih Agama *</label>
+                                                <select id="form_agama" name="agama" class="form-control" required="required" data-error="Tolong pilih agama.">
+                                                    <option value="" selected disabled>Pilih agama</option>
+                                                    <option value="Hindu">Hindu</option>
+                                                    <option value="Buda">Buda</option>
+                                                    <option value="Islam">Islam</option>
+                                                    <option value="Kristen">Kristen</option>
+                                                    <option value="Katolik">Katolik</option>
+                                                    <option value="Kong Hu Cu">Kong Hu Cu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group"> <label for="form_sekolah">Sekolah Asal *</label>
+                                                <input id="form_sekolah" type="text" name="sekolah" class="form-control" placeholder="Sekolah asal anda *" required="required" data-error="Sekolah asal diperlukan." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="form_alamat">Alamat lengkap *</label>
+                                                <textarea id="form_alamat" name="alamat" class="form-control"
+                                                    placeholder="Alamat lengkap *" rows="4" required="required"
+                                                    data-error="Tolong isi alamat lengkap anda!"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button id="submit-btn" type="button" class="btn btn-success pt-2 btn-block" value="Daftar">Daftar</input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script type="text/javascript">
+    $('#submit-btn').on('click', () => {
+        
+        let data = {
+            nama: $('#form_nama').val(),
+            kelamin: $('#form_kelamin').find(':selected').val(),
+            agama: $('#form_agama').find(':selected').val(),
+            sekolah: $('#form_sekolah').val(),
+            alamat: $('#form_alamat').val(),
+        }
+
+        let ERROR = false;
+        if(data.nama.length == 0) { ERROR = true }
+        if(data.kelamin.length == 0) { ERROR = true }
+        if(data.agama.length == 0) { ERROR = true }
+        if(data.sekolah.length == 0) { ERROR = true }
+        if(data.alamat.length == 0) { ERROR = true }
+
+        console.log(data);
+        if(!ERROR){
+            $.ajax({
+                type: 'POST',
+                url: "https://ariesta.club/pweb/minggu14/daftar.php",
+                data: data,
+                success: function(resultData) {
+                    let result = JSON.parse(resultData);
+                    if(result.error == 0){
+                        toastr["success"](result.status);
+                    }else{
+                        toastr["error"](result.status);
+                    }
+                }
+            });
+        }else{
+            alert("Terjadi kesalahan, mohon input tidak boleh ada yang kosong!");
+        }
+    });
+</script>
+</html>
